@@ -27,7 +27,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.assignments (
     id integer NOT NULL,
     title text NOT NULL,
-    max_grade numeric DEFAULT 10
+    max_grade integer DEFAULT 10
 );
 
 
@@ -59,13 +59,6 @@ ALTER SEQUENCE public.assignments_id_seq OWNED BY public.assignments.id;
 -- Name: courses; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.courses (
-    id integer NOT NULL,
-    period integer NOT NULL,
-    subject text NOT NULL,
-    assignment_id integer,
-    teacher_id integer
-);
 
 
 ALTER TABLE public.courses OWNER TO postgres;
@@ -98,7 +91,7 @@ ALTER SEQUENCE public.courses_id_seq OWNED BY public.courses.id;
 
 CREATE TABLE public.grades (
     id integer NOT NULL,
-    received_grade numeric,
+    received_grade integer,
     student_id integer,
     assignment_id integer
 );
